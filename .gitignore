@@ -1,6 +1,7 @@
-node_modules/
-.cache/
-public
+node_modules
+.vsix
 out
-.DS_Store
-.env
+package-lock.json
+Hardware Simulator.dat
+Assembler.dat
+CPU Emulator.dat

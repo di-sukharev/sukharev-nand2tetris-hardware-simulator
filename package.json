@@ -2,7 +2,7 @@
   "name": "vscode-sukharev-nand2tetris-tools",
   "displayName": "Sukharev Nand2Tetris Tools",
   "description": "A Tools Set for the Open Course Nand2Tetris.",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "icon": "images/icon.png",
   "publisher": "disukharev",
   "engines": {
