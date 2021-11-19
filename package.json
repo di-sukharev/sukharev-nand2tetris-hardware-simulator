@@ -1,0 +1,156 @@
+{
+  "name": "vscode-sukharev-nand2tetris-tools",
+  "displayName": "Sukharev Nand2Tetris Tools",
+  "description": "A Tools Set for the Open Course Nand2Tetris.",
+  "version": "1.1.1",
+  "icon": "images/icon.png",
+  "publisher": "disukharev",
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/di-sukharev/sukharev-nand2tetris-hardware-simulator"
+  },
+  "activationEvents": [
+    "onCommand:nand2tetris.run",
+    "onCommand:nand2tetris.hardware",
+    "onCommand:nand2tetris.assembler",
+    "onCommand:nand2tetris.cpu",
+    "onCommand:nand2tetris.stop",
+    "onCommand:nand2tetris.zip"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nand2tetris.run",
+        "title": "Sukharev: Run Code",
+        "icon": "./images/button.png"
+      },
+      {
+        "command": "nand2tetris.hardware",
+        "title": "Sukharev: Open Hardware Simulator"
+      },
+      {
+        "command": "nand2tetris.assembler",
+        "title": "Sukharev: Open Assembler Simulator"
+      },
+      {
+        "command": "nand2tetris.cpu",
+        "title": "Sukharev: Open CPU Simulator"
+      },
+      {
+        "command": "nand2tetris.stop",
+        "title": "Sukharev: Stop Running"
+      },
+      {
+        "command": "nand2tetris.zip",
+        "title": "Sukharev: Compress course source to a zip"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == hdl && config.nand2tetris.showRunIconInEditorTitleMenu",
+          "command": "nand2tetris.run",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceLangId == asm && config.nand2tetris.showRunIconInEditorTitleMenu",
+          "command": "nand2tetris.run",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Nand2Tetris configuration",
+      "properties": {
+        "nand2tetris.showRunIconInEditorTitleMenu": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to show 'HDL Run Code' icon in editor title menu.",
+          "scope": "resource"
+        },
+        "nand2tetris.runInTerminal": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to run code in Integrated Terminal.",
+          "scope": "resource"
+        },
+        "nand2tetris.clearPreviousOutput": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to clear previous output before each run.",
+          "scope": "resource"
+        },
+        "nand2tetris.preserveFocus": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to preserve focus on code editor after code run is triggered.",
+          "scope": "resource"
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "hdl",
+        "aliases": [
+          "HDL",
+          "hdl"
+        ],
+        "extensions": [
+          ".hdl"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "asm",
+        "aliases": [
+          "ASM"
+        ],
+        "extensions": [
+          ".asm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "hdl",
+        "scopeName": "source.hdl",
+        "path": "./syntaxes/hdl.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "hdl",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "tslint": "tslint -t verbose src/**/*.ts"
+  },
+  "dependencies": {
+    "tree-kill": "^1.1.0",
+    "compressing": "^1.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6",
+    "tslint": "^5.8.0",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  }
+}
