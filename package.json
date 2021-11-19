@@ -2,7 +2,7 @@
   "name": "vscode-sukharev-nand2tetris-tools",
   "displayName": "Sukharev Nand2Tetris Tools",
   "description": "A Tools Set for the Open Course Nand2Tetris.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "icon": "images/icon.png",
   "publisher": "disukharev",
   "engines": {
@@ -143,14 +143,14 @@
     "tslint": "tslint -t verbose src/**/*.ts"
   },
   "dependencies": {
-    "tree-kill": "^1.1.0",
-    "compressing": "^1.4.0"
+    "compressing": "^1.4.0",
+    "tree-kill": "^1.1.0"
   },
   "devDependencies": {
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.6",
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^16.11.8",
     "tslint": "^5.8.0",
-    "@types/node": "^7.0.43",
-    "@types/mocha": "^2.2.42"
+    "typescript": "^4.5.2",
+    "vscode": "^1.1.6"
   }
 }
